@@ -1,0 +1,36 @@
+<header class="bd-navbar fixed-top">
+<nav class="navbar navbar-expand-lg navbar">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText" style="background-color: goldenrod">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="navbar-brand ipad" (click)="redirectingDashBoard();"><img src="/assets//images/smartQ.jpg" class="img-responsive " alt="Responsive image" style="height:44px;"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link header" (click)="redirectingDashBoard();">Smart<span style="color: gold">Q</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link headerA" (click)="redirectingHome();">Home</a>
+      </li>
+
+    </ul>
+
+    <ul class="navbar-nav" style="cursor: pointer">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="/assets//images/account-created.png" height="30px" alt="profile" class="rounded-circle">
+          {{login_id}}
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+</header>
+

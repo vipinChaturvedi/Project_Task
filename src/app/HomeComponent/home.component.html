@@ -1,0 +1,142 @@
+<app-navBar></app-navBar>
+<div class="container" style="margin-top: 120px;">
+<div class="row">
+
+  <div class="col-2">
+    <div class="card ">
+      <div class="card-body ">
+        <div class="row heading2" (click)="getDetails('',0);">
+          ALL
+        </div>
+      </div>
+    </div>
+    <div class="card card__two mtop15 border-0" *ngFor="let list of category ;let i=index;">
+      <div class="card-body card-bg" >
+        <div class="row" >
+          <div class="col text-truncate qHeading " (click)="getDetails(list,i)">{{list}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="! allDeatils" class="col-6">
+    <div class="card ">
+      <div class="card-body ">
+        <div class=" text-center" style="background-color: goldenrod">
+          {{categoryName}}
+        </div>
+      </div>
+    </div>
+    <div class="card card__two border" *ngFor="let list of categoryDetails ;let i=index;">
+      <div class="card-body card-bg" >
+        <div class="row" >
+
+          <svg *ngIf="list.vegflag == 'nonveg' "width="10" height="20">
+            <rect  width="13" height="17" style="fill:red;"/>
+          </svg>
+
+          <svg *ngIf="list.vegflag == 'veg' " width="10" height="20">
+            <rect  width="13" height="17" style="fill:green;"/>
+          </svg>
+          <div class="col-7 text-truncate qHeading ">{{list.name}}
+            <p>{{list.description}}</p>
+          </div>
+
+          <div class="col text-truncate qHeading ">
+            <i (click)="decreaseData(list,0,i);" class="fa fa-minus-square-o" aria-hidden="true" ></i>
+              <a *ngIf="storeIndex[i] != 0 ">{{storeIndex[i]}}</a>
+            <i  (click)="plusData(list,0,i);" class="fa fa-plus-square-o" aria-hidden="true"></i>
+          </div>
+
+
+          <div class="col text-truncate qHeading ">{{list.price}}</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="allDeatils" class="col-6">
+    <div class="card ">
+      <div class="card-body ">
+        <div class=" text-center" style="background-color: goldenrod"  *ngFor="let list of selectCategory;let j=index;">
+          {{list.categoryName}}
+
+    <div class="card card__two border" *ngFor="let list of list.category ;let i=index;">
+      <div class="card-body card-bg" >
+        <div class="row" >
+
+            <svg *ngIf="list.vegflag == 'nonveg' "width="10" height="20">
+              <rect  width="13" height="17" style="fill:red;"/>
+            </svg>
+
+            <svg *ngIf="list.vegflag == 'veg' " width="10" height="20">
+              <rect  width="13" height="17" style="fill:green;"/>
+            </svg>
+
+          <div class="col-7 text-truncate qHeading ">
+
+            {{list.name}}
+
+            <p>{{list.description}}</p>
+          </div>
+
+          <div class="col text-truncate qHeading ">
+            <i (click)="decreaseData(list,j,i);" class="fa fa-minus-square-o" aria-hidden="true" ></i>
+            <a *ngIf="selectIndex[j].index[i] != 0 ">{{selectIndex[j].index[i]}}</a>
+            <i  (click)="plusData(list,j,i);" class="fa fa-plus-square-o" aria-hidden="true"></i>
+          </div>
+
+
+          <div class="col text-truncate qHeading ">{{list.price}}</div>
+
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div  *ngIf="count > 0 " class="col-4">
+    <div class="card ">
+      <div class="card-body ">
+        <div style="background-color: goldenrod">
+         <div>
+           <a style="margin-left: 10px;"> Your Cart</a>
+           <i class="fa fa-trash-o pull-right" (click)="clearData();" aria-hidden="true" style="margin-right: 10px;"></i>
+         </div>
+        </div>
+      </div>
+    </div>
+    <div class="card card__two border" *ngFor="let list of categoryData ;let i=index;">
+      <div class="card-body card-bg" >
+        <div class="row" >
+          <div class="col-8 text-truncate qHeading ">{{list}}
+          </div>
+
+          <div class="col text-truncate qHeading ">
+             * {{storeIndex[i]}}
+          </div>
+
+
+          <div class="col-2 text-truncate qHeading ">{{price[i]}}</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="cursor: pointer;margin-top: 30px;">
+      <button class="btn-link" style="background-color: goldenrod">Checkout</button>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="col-4">
+
+</div>
+</div>
+</div>
